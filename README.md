@@ -1,9 +1,5 @@
-[![Build Status](https://dev.azure.com/deepakhsharma/contact-tracker/_apis/build/status/contact-tracker-ui-CI?branchName=master)]
-[![Deployment Status](https://vsrm.dev.azure.com/deepakhsharma/_apis/public/Release/badge/f98efdd4-3764-439d-931e-cbc84f5dff87/2/2
-)]
 
-
-# Contacttracker
+# Ravi's Base project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
