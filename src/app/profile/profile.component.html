@@ -1,0 +1,118 @@
+﻿<h2>Profile</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onUpdate()" class="needs-validation">
+    <div class="form-group position-relative">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control"  placeholder="First name" 
+        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-tooltip">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        </div>
+    </div>
+    <br/>
+    <div class="form-group position-relative">
+        <label for="validationTooltip03">Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" id="validationTooltip03" 
+        placeholder="Last name"
+        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required/>
+        <div *ngIf="submitted && f.lastName.errors"  class="invalid-tooltip">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        </div>
+    </div>
+    <br/>
+    <div class="form-group position-relative">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email" class="form-control" 
+        placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required/>
+        <div *ngIf="submitted && f.email.errors" class="invalid-tooltip">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+      
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="mobileNumber">Mobile number</label>
+        <input type="text" formControlName="mobileNumber" class="form-control" placeholder="(000)000-0000" appPhoneMask/>
+    </div>
+
+    <div class="form-group">
+        <label for="homePhoneNumber">Home Phone number</label>
+        <input type="text" formControlName="homePhoneNumber" class="form-control" placeholder="(000)000-0000" appPhoneMask/>
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" formControlName="age" class="form-control"  maxlength=3/>
+    </div>
+
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="custom-select" id="gender" formControlName="gender">
+            <option selected disabled value="">Choose</option>
+            <option>Male</option> 
+            <option>Female</option> 
+            <option>Undisclosed</option> 
+        </select>
+        <!-- <input type="text" formControlName="gender" class="form-control" placeholder="(000)000-0000" /> -->
+    </div>
+
+    <div class="form-group position-relative">
+        <label for="addressLine1">Address Line 1</label>
+        <input type="text" formControlName="addressLine1" class="form-control" maxlength=90
+        placeholder="Address Line 1"/>
+    </div>
+
+    <div class="form-group position-relative">
+        <label for="addressLine2">Address Line 2</label>
+        <input type="text" formControlName="addressLine2" class="form-control"  maxlength=90
+        placeholder="Address Line 2"/>
+    </div>
+
+    
+
+   
+
+    <div class="form-group position-relative">
+        <label for="country">Select Country</label>
+        <select class="form-control" (change)="onChangeCountry($event.target.value)"  placeholder="Country" formControlName="country" >
+            <option selected disabled value=""> Country </option>
+          <option *ngFor="let country of countryInfo; let i = index" value="{{i}}">{{country.CountryName}}</option>
+        </select>  
+      </div>
+      <div class="form-group position-relative">
+        <label for="state">State</label>
+        <select class="form-control" (change)="onChangeState($event.target.value)" formControlName="state">
+            <option *ngIf="stateInfo == ''" value="-1"> State </option>
+            <option *ngFor="let state of stateInfo; let j = index" value="{{j}}">{{state.StateName}}</option>
+          </select>  
+       
+    </div>
+
+    <div class="form-group position-relative">
+        <label for="city">City</label>
+        <input type="text" formControlName="city" class="form-control" maxlength=40
+        placeholder="City"/>
+        <!-- <select class="form-control">
+            <option *ngIf="cityInfo == ''" value="-1">--Select CIty--</option>
+          <option *ngFor="let city of cityInfo; let k = index" value="{{k}}">{{city}}</option>
+        </select>   -->
+    </div>
+    
+
+    <div class="form-group position-relative">
+        <label for="postalCode">Zip</label>
+        <input type="text" formControlName="postalCode" class="form-control" maxlength=5
+        placeholder="Zip code"/>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary">
+            <!-- <span class="spinner-border spinner-border-sm mr-1"></span> -->
+            Update
+        </button>
+        <a routerLink="/dashboard" class="btn btn-link">Cancel</a>
+    </div>
+
+     
+
+</form>

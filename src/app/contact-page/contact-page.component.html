@@ -1,0 +1,109 @@
+
+<mat-card>
+    <mat-tab-group dynamicHeight>
+      <mat-tab label="Contact">
+        <mat-card>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmitContactForm()"class="example-form">
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Contact Person First Name</mat-label>
+              <input matInput formControlName="contactFirstName" required>
+              <mat-error >
+                  <div>{{fieldAlret}}</div>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Contact Person Last Name</mat-label>
+              <input matInput formControlName="contactLastName" required >
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Contact Person Email</mat-label>
+              <input matInput formControlName="contactEmail" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Contact Person Phone Number</mat-label>
+              <input matInput formControlName="contactPhoneNumber" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Contacted Date</mat-label>
+              <input matInput formControlName="dateOfVisit" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Purpose of Visit</mat-label>
+              <input matInput formControlName="purposeOfVisit">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Street Address</mat-label>
+              <input matInput formControlName="visitAddress">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="visitCity">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>State</mat-label>
+              <input matInput formControlName="visitState">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Zip</mat-label>
+              <input matInput formControlName="visitPostalCode" >
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Country</mat-label>
+              <input matInput formControlName="visitCountry">
+            </mat-form-field>
+            <div class="row">
+              <div class= "col-md-3">
+            <button  mat-raised-button [disabled]="!contactForm.valid" color="primary">Submit</button>
+            </div>
+            <div *ngIf= "!contactForm.valid" class="col-md-9">
+              <p class="alert"> Please fill all mandatory filelds to submit the contact details</p>
+            </div>
+          </div>
+          </form> 
+        </mat-card>
+      </mat-tab>
+      <mat-tab label="Location">
+        <mat-card>
+          <form [formGroup]="locationForm" (ngSubmit)="onSubmitLocationForm()" class="example-form">
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Date of Visit</mat-label>
+              <input matInput formControlName="dateOfVisit"  required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Purpose of Visit</mat-label>
+              <input matInput formControlName="purposeOfVisit" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Street Address</mat-label>
+              <input matInput formControlName="visitAddress" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="visitCity" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>State</mat-label>
+              <input matInput formControlName="visitState" required >
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Zip</mat-label>
+              <input matInput formControlName="visitPostalCode" required >
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Country</mat-label>
+              <input matInput formControlName="visitCountry" required>
+            </mat-form-field>
+            <div class="row">
+                <div class= "col-md-3">
+                    <button  mat-raised-button [disabled]="!locationForm.valid" color="primary">Submit</button>
+              </div>
+              <div *ngIf= "!locationForm.valid" class="col-md-9">
+                <p class="alert"> Please fill all mandatory filelds to submit the Location details</p>
+              </div>
+            </div>
+            
+          </form>
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>

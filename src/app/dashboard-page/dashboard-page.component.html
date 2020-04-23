@@ -1,0 +1,35 @@
+<mat-card>
+<div class="alert alert-primary" role="alert">
+  <h4 class="alert-heading">Welcome to Contact Tracker!</h4>
+  <p *ngIf ="userStatus"> Please update your <a routerLink="/profile" color="primary">profile details</a> if you haven't already done.</p>
+</div>
+<div class="container">
+<div class="row">
+    <div class="card">
+        <h5 class="card-header">Contact</h5>
+        <div class="card-body">
+          <!-- <h5 class="card-title">Special title treatment</h5> -->
+          <p class="card-text">Add the contact details of people you have met recently.</p>
+          <a mat-raised-button class="button-margin" routerLink="/contact" color="primary">Add Contact</a>
+          <a mat-raised-button class="button-margin" routerLink="/contactlist" color="primary">View Contacts</a>
+          <a mat-raised-button class="button-margin" routerLink="/contactsearch" color="primary">Search</a>
+          <!-- <input class="button-margin form-cont" type="text" placeholder="Search.."> -->
+        </div>
+      </div>
+      <div class="card">
+        <h5 class="card-header">Test Results</h5>
+        <div class="card-body">
+          <!-- <h5 class="card-title">Special title treatment</h5> -->
+          <p class="card-text">Add the covid test report results which you took recently.</p>
+          <a mat-raised-button class="button-margin" routerLink="/test" color="primary">Add Tests</a>
+          <a mat-raised-button class="button-margin" routerLink="/testlist" color="primary">View Tests</a>
+          <a mat-raised-button class="button-margin" routerLink="/testsearch" color="primary">Search</a>
+          <!-- <button mat-raised-button color="primary" class="button-margin"  [routerLink]="['/test']">Add Tests</button>
+          <button  mat-raised-button color="primary" class="button-margin" [routerLink]="['/testlist']">View Tests</button>
+          <button  mat-raised-button color="primary" class="button-margin" [routerLink]="['/testsearch']">Search</button> -->
+          <!-- <input type="text" class="button-margin form-cont" placeholder="Search.."> -->
+        </div>
+      </div>
+</div>
+</div>
+</mat-card>

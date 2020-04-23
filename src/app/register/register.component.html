@@ -1,0 +1,58 @@
+﻿<h2>Register</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="needs-validation">
+    <div class="form-group position-relative">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control"  placeholder="First name"
+        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-tooltip">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        </div>
+    </div>
+    <br/>
+    <div class="form-group position-relative">
+        <label for="validationTooltip03">Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" id="validationTooltip03" 
+        placeholder="Last name"
+        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required/>
+        <div *ngIf="submitted && f.lastName.errors"  class="invalid-tooltip">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        </div>
+    </div>
+    <br/>
+    <div class="form-group position-relative">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email" class="form-control" 
+        placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required/>
+        <div *ngIf="submitted && f.email.errors" class="invalid-tooltip">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+      
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="mobileNumber">Mobile number</label>
+        <input type="text" formControlName="mobileNumber" class="form-control" placeholder="(000)000-0000" 
+        [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" appPhoneMask  />
+        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">Mobile Number is required</div>
+            <div *ngIf="f.phone.errors.minlength">Mobile Number must be at least 10 characters</div>
+        </div>
+      
+    </div>
+    <div class="form-group">
+        <button [disabled]="!registerForm.valid" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Register
+        </button>
+        <a routerLink="/login" class="btn btn-link">Cancel</a>
+    </div>
+    <div class="alert alert-primary" role="alert">
+        <i>E-mail address is required to send One Time Password (OTP) and will be your login ID for the service.</i>
+        <hr>
+       <i>It is optional for you to provide mobile number. Note: OTP, Alerts and Notications will not be sent to mobile 
+            number and will only be sent to your registered e-mail address</i>
+      </div>
+     
+
+</form>

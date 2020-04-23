@@ -1,0 +1,7 @@
+{
+    "/contacttracker/*": {
+        "target": "http://192.168.0.23:8086",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
