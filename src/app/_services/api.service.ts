@@ -19,9 +19,12 @@ export class ApiService {
 
 
   constructor(private http: HttpClient) { }
-  baseUrlPerson: string = 'https://contacttrackerpersonapi.azurewebsites.net/contacttracker/users/';
-  baseUrlTest: string = 'https://contacttrackertestapi.azurewebsites.net/';
-  baseUrlContact: string = 'https://contacttrackercontactapi.azurewebsites.net/contacttracker/contacts';
+  baseUrlPerson: string = '';
+  baseUrlTest: string = '';
+  baseUrlContact: string = '';
+  // baseUrlPerson: string = 'https://contacttrackerpersonapi.azurewebsites.net/contacttracker/users/';
+  // baseUrlTest: string = 'https://contacttrackertestapi.azurewebsites.net/';
+  // baseUrlContact: string = 'https://contacttrackercontactapi.azurewebsites.net/contacttracker/contacts';
   // baseUrl: string = 'http://192.168.0.23:8086/contacttracker/users/';
 
   login(loginPayload) : Observable<ApiResponse> {
